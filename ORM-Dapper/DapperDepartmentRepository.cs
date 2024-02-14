@@ -22,9 +22,10 @@ namespace ORM_Dapper
         }
         public void InsertDepartments(string newDepartmentName)
         {
-            _conn.Execute("Insert Into department(name) values (@department)",
-                new { departmentName = newDepartmentName });
+            _conn.Execute("INSERT INTO departments (name) VALUES (@departmentName)",
+        new { departmentName = newDepartmentName });
         }
     }
-    }
+} 
+   
 

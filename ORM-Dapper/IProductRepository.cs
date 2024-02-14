@@ -11,3 +11,5 @@ namespace ORM_Dapper
         IEnumerable<Product> GetAllProducts();
     }
 }
+
+
