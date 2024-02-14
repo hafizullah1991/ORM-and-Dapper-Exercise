@@ -2,7 +2,7 @@
 using MySql.Data.MySqlClient;
 using System.Data;
 
-namespace ORM_Dapper
+namespace   ORM_Dapper
 {
     public class Program
     {
@@ -18,12 +18,22 @@ namespace ORM_Dapper
             IDbConnection conn = new MySqlConnection(connString);
 
             var instance = new DapperDepartmentRepository(conn);
-          var departmens =  instance.GetAllDepartments();
-           
-            foreach(var department in departmens)
+            var departmens = instance.GetAllDepartments();
+
+            foreach (var department in departmens)
             {
                 Console.WriteLine(department.Name);
                 Console.WriteLine(department.DepartmentID);
+            }
+            instance.InsertDepartments("C phone");
+
+            var productRepository = new DapperProductRepository(conn);
+          var products =  productRepository.GetAllProducts();
+            foreach(var product in products)
+            {
+                Console.WriteLine(product.Name);
+                Console.WriteLine(product.Price);
+                Console.WriteLine(product.CategoryID);
             }
         }
     }
